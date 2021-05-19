@@ -104,6 +104,18 @@
   },
   {
     "id": "releases",
+    "version": "upstream-%releases-tag%",
+    "bitness": 64,
+    "arch": "aarch64",
+    "macos_url": "https://storage.googleapis.com/webassembly/emscripten-releases-builds/mac/%releases-tag%/wasm-binaries-arm64.tbz2",
+    "zipfile_prefix": "%releases-tag%-",
+    "install_path": "upstream",
+    "activated_path": "%installation_dir%/emscripten",
+    "activated_cfg": "LLVM_ROOT='%installation_dir%/bin';BINARYEN_ROOT='%installation_dir%';EMSCRIPTEN_ROOT='%installation_dir%/emscripten'",
+    "emscripten_releases_hash": "%releases-tag%"
+  },
+  {
+    "id": "releases",
     "version": "fastcomp-%releases-tag%",
     "bitness": 64,
     "arch": "x86_64",
@@ -514,9 +526,8 @@
     "bitness": 64,
     "url": "https://github.com/juj/ccache.git",
     "git_branch": "emscripten",
-    "activated_cfg": "EMCC_CCACHE=1",
     "activated_path": "%installation_dir%/bin",
-    "activated_env": "EMCC_CCACHE=1;CCACHE_CONFIGPATH=%installation_dir%/emcc_ccache.conf",
+    "activated_env": "_EMCC_CCACHE=1;CCACHE_CONFIGPATH=%installation_dir%/emcc_ccache.conf",
     "cmake_build_type": "Release",
     "custom_install_script": "build_ccache"
   }
@@ -596,6 +607,14 @@
     "uses": ["node-14.15.5-64bit", "python-3.9.2-1-64bit", "releases-upstream-%releases-tag%-64bit"],
     "os": "macos",
     "arch": "x86_64",
+    "custom_install_script": "emscripten_npm_install"
+  },
+  {
+    "version": "releases-upstream-%releases-tag%",
+    "bitness": 64,
+    "uses": ["node-14.15.5-64bit", "python-3.9.2-1-64bit", "releases-upstream-%releases-tag%-64bit"],
+    "os": "macos",
+    "arch": "aarch64",
     "custom_install_script": "emscripten_npm_install"
   },
   {
