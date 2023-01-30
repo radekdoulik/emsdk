@@ -41,7 +41,7 @@
 
     <Exec WorkingDirectory="$(RepoRoot)"
       Command="$(PythonFileName) eng/sanitize.py $(RepoRoot)" />
-    <!-- clang-wrapper.sh hardcodes clang-15 at the moment so make sure it still exists -->
+    <!-- clang-wrapper.sh hardcodes clang-16 at the moment so make sure it still exists -->
     <Error Text="Update clang-wrapper.sh to point at the correct clang-* version"
       Condition="!Exists('$(UpstreamDirectory)\bin\clang-16') and !$([MSBuild]::IsOSPlatform(Windows))" />
     <Delete Files="$(UpstreamDirectory)\bin\clang"
