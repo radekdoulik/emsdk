@@ -87,6 +87,7 @@
       Overwrite="true" />
 
     <!-- Remove unnecessary artifacts -->
+    <RemoveDir Directories="$(ArtifactsObjDir)upstream\emscripten\test" />
     <RemoveDir Directories="$(ArtifactsObjDir)upstream\emscripten\tests" />
     <RemoveDir Directories="$(ArtifactsObjDir)upstream\emscripten\node_modules\google-closure-compiler" />
     <RemoveDir Directories="$(ArtifactsObjDir)upstream\emscripten\node_modules\google-closure-compiler-java" />
